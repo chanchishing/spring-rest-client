@@ -2,6 +2,7 @@ package guru.springframework.services;
 
 import guru.springframework.api.domain.User;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,11 @@ class ApiServiceImplTest {
         assertEquals(3,users.size());
     }
 
+    @Disabled
     @Test
     void getUsersReactive() {
         Flux<User> users=apiService.getUsers(Mono.just(3));
+
 
         assertEquals(3,users.collectList().block().size());
     }
