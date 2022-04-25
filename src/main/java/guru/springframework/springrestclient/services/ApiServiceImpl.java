@@ -46,7 +46,7 @@ public class ApiServiceImpl implements ApiService{
         Flux<User> userFlux = WebClient
                 .create(apiURL)
                 .get()
-                .uri(uriBuilder -> uriBuilder.queryParam("_limit", limit.subscribe()).build())
+//                .uri(uriBuilder -> uriBuilder.queryParam("_limit", limit.subscribe()).build())
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .bodyToFlux(User.class);
