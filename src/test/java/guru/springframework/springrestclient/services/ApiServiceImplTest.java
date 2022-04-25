@@ -1,4 +1,4 @@
-package guru.springframework.services;
+package guru.springframework.springrestclient.services;
 
 import guru.springframework.api.domain.User;
 import org.junit.jupiter.api.BeforeEach;

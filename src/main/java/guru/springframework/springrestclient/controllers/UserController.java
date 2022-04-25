@@ -1,6 +1,6 @@
-package guru.springframework.controllers;
+package guru.springframework.springrestclient.controllers;
 
-import guru.springframework.services.ApiService;
+import guru.springframework.springrestclient.services.ApiService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
