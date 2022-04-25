@@ -11,7 +11,7 @@ import java.util.Map;
 import javax.annotation.Generated;
 
 
-@Builder
+
 @Getter
 @Setter
 public class Geo implements Serializable
@@ -19,7 +19,6 @@ public class Geo implements Serializable
 
     private String lat;
     private String lng;
-    @Builder.Default
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
     private final static long serialVersionUID = -5390106342352257127L;
 

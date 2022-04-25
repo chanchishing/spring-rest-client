@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
 
-@Builder
+
 @Getter
 @Setter
 public class Address implements Serializable
@@ -21,7 +21,6 @@ public class Address implements Serializable
     private String city;
     private String zipcode;
     private Geo geo;
-    @Builder.Default
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
     private final static long serialVersionUID = -3734311591897393438L;
 
