@@ -33,11 +33,9 @@ class ApiServiceImplTest {
         assertEquals(3,users.size());
     }
 
-    @Disabled
     @Test
     void getUsersReactive() {
         Flux<User> users=apiService.getUsers(Mono.just(3));
-
 
         assertEquals(3,users.collectList().block().size());
     }
