@@ -13,6 +13,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -43,15 +44,17 @@ public class ApiServiceImpl implements ApiService{
     @Override
     public Flux<User> getUsers(Mono<Integer> limit) {
 
-        Flux<User> userFlux = WebClient
-                .create(apiURL)
-                .get()
-//                .uri(uriBuilder -> uriBuilder.queryParam("_limit", limit.subscribe()).build())
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .bodyToFlux(User.class);
+        return limit.flatMapMany(limitInteger ->{
+            return WebClient
+                    .create(apiURL)
+                    .get()
+                    .uri(uriBuilder -> uriBuilder.queryParam("_limit", limitInteger.toString()).build())
+                    //.uri(uriBuilder -> uriBuilder.queryParam("_limit", 7).build())
+                    .accept(MediaType.APPLICATION_JSON)
+                    .retrieve()
+                    .bodyToFlux(User.class);
 
-        return userFlux;
+        });
     }
 
 }
